@@ -1,0 +1,36 @@
+[journal]
+    *id {label:"VARCHAR(80)"}
+    name {label:"VARCHAR(80)"}
+
+[journal_entry]
+    *id {label:"VARCHAR(80)"}
+    summary {label:"VARCHAR(80)"}
+    description {label:"VARCHAR(1024)"}
+    classification {label:"VARCHAR(80)"}
+
+[journal_attachment]
+    *id {label:"VARCHAR(80)"}
+    name {label:"VARCHAR(80)"}
+
+[journal_comment]
+    *id {label:"VARCHAR(80)"}
+    name {label:"VARCHAR(80)"}
+
+[journal_contact]
+    *id {label:"VARCHAR(80)"}
+    name {label:"VARCHAR(80)"}
+
+[journal_category]
+    *id {label:"VARCHAR(80)"}
+    name {label:"VARCHAR(80)"}
+
+[journal_related]
+    *id {label:"VARCHAR(80)"}
+    name {label:"VARCHAR(80)"}
+
+journal 1--* journal_entry
+journal_entry 1--* journal_attachment
+journal_entry 1--* journal_comment
+journal_entry 1--* journal_contact
+journal_entry 1--* journal_category
+journal_entry 1--* journal_related
