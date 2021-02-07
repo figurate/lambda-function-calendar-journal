@@ -53,9 +53,10 @@ applied to a journal entry.
 
 ### DynamoDB
 
-| PK                                            | SK                  | Name        | Date       | Summary           | Description                | Classification | URL                                  |
-|-----------------------------------------------|---------------------|-------------|------------|-------------------|----------------------------|----------------|--------------------------------------|
-| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | #METADATA#`<uid>`.. | Jan 01 2021 | 2020-01-01 | First day of 2021 | Relaxing start to the year | PUBLIC         | -                                    |
-| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | CATEGORY#my-journal | My Journal  |            |                   |                            |                |                                      |
-| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | ATTACH#1            | -           | -          | -                 | -                          |                | https://photos.example.com/relax.png |
-| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | CONTACT#1           | John Doe    | -          | -                 | -                          |                | johnd@example.com                    |
+| PK                                            | SK                          | Name        | Date       | Organizer         | Summary           | Description                | Classification | URL                                  |
+|-----------------------------------------------|-----------------------------|-------------|------------|-------------------|-------------------|----------------------------|----------------|--------------------------------------|
+| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | #METADATA#`<uid>`..         | Jan 01 2021 | 2020-01-01 | johnd@example.com | First day of 2021 | Relaxing start to the year | PUBLIC         | -                                    |
+| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | CATEGORY#my-journal         | My Journal  |            |                   |                   |                            |                |                                      |
+| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | ATTACH#1                    | -           | -          |                   | -                 | -                          |                | https://photos.example.com/relax.png |
+| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | CONTACT#1                   | John Doe    | -          |                   | -                 | -                          |                | johnd@example.com                    |
+| ORGANIZER#johnd@example.com                   | #METADATA#johnd@example.com | John Doe    |            |                   |                   |                            |                |                                      |
