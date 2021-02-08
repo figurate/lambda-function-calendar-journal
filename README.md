@@ -2,6 +2,8 @@
 
 A journal management function.
 
+![Calendar Journal](calendar_journal.png)
+
 ## Overview
 
 A calendar journal is useful for recording outcomes of past events and keeping records of achievements. A journal
@@ -50,6 +52,78 @@ applied to a journal entry.
 
 
 ## Specification
+
+### Input Event
+
+The following JSON structure is used to create, update and retrieve journal entries.
+
+#### Create entry
+
+```
+{
+    "action": "compose",
+    "summary": "A new entry",
+    "description": "A longer text description",
+    "organizer": "John Doe"
+}
+```
+
+#### Create recurring entry
+
+```
+{
+    "action": "compose",
+    "summary": "Monthly Retrospective",
+    "description": "Record actions from retro",
+    "organizer": "John Doe",
+    "rrule": "FREQ=MONTHLY;BYDAY=MO"
+}
+```
+
+#### Create entry revision
+
+```
+{
+    "action": "revision",
+    "uid": "1234",
+    "summary": "An entry update",
+    "description": "A longer text description",
+    "organizer": "John Doe"
+}
+```
+
+#### Create entry recurrence revision
+
+```
+{
+    "action": "revision",
+    "uid": "1234",
+    "recurrence-id": "20210214",
+    "summary": "February Retrospective",
+    "description": "Actions from Feb retro: ..",
+    "organizer": "John Doe"
+}
+```
+
+#### List revisions
+
+```
+{
+    "action": "list",
+    "uid": "1234",
+    "depth": "-1"
+}
+```
+
+#### Entry search
+
+```
+{
+    "action": "search",
+    "from": "2020-01-01",
+    "organizer": "johnd@example.com"
+}
+```
 
 ### DynamoDB
 

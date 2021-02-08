@@ -1,10 +1,12 @@
 SHELL:=/bin/bash
 REGISTRY?=figurate
-IMAGE_NAME=lambda-function-python-template
+IMAGE_NAME=lambda-function-calendar-journal
 TAGS?=latest
 BUILD_ARGS?=
 PYTHON_VERSION=3.8
 AWS_DEFAULT_REGION?=ap-southeast-2
+
+DIAGRAMS=docker run -v "${PWD}:/work" figurate/diagrams python
 
 .PHONY: all clean build tag push run diagram
 
@@ -29,4 +31,5 @@ run:
 	docker run --rm -it -p 9000:8080 -e AWS_REGION=$(AWS_DEFAULT_REGION) $(REGISTRY)/$(IMAGE_NAME)
 
 diagram:
+	$(DIAGRAMS) diagram.py
 	eralchemy -i calendar-journal.er -o calendar-journal.pdf
