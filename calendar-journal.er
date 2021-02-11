@@ -6,6 +6,7 @@
     *id {label:"VARCHAR(80)"}
     summary {label:"VARCHAR(80)"}
     description {label:"VARCHAR(1024)"}
+    status {label:"INTEGER"}
     classification {label:"VARCHAR(80)"}
     organizer_id {label:"VARCHAR(80)"}
 

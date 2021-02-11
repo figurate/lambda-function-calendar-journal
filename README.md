@@ -59,7 +59,7 @@ The following JSON structure is used to create, update and retrieve journal entr
 
 #### Create entry
 
-```
+```json
 {
     "action": "compose",
     "summary": "A new entry",
@@ -70,7 +70,7 @@ The following JSON structure is used to create, update and retrieve journal entr
 
 #### Create recurring entry
 
-```
+```json
 {
     "action": "compose",
     "summary": "Monthly Retrospective",
@@ -82,7 +82,7 @@ The following JSON structure is used to create, update and retrieve journal entr
 
 #### Create entry revision
 
-```
+```json
 {
     "action": "revision",
     "uid": "1234",
@@ -94,7 +94,7 @@ The following JSON structure is used to create, update and retrieve journal entr
 
 #### Create entry recurrence revision
 
-```
+```json
 {
     "action": "revision",
     "uid": "1234",
@@ -107,7 +107,7 @@ The following JSON structure is used to create, update and retrieve journal entr
 
 #### List revisions
 
-```
+```json
 {
     "action": "list",
     "uid": "1234",
@@ -117,7 +117,7 @@ The following JSON structure is used to create, update and retrieve journal entr
 
 #### Entry search
 
-```
+```json
 {
     "action": "search",
     "from": "2020-01-01",
@@ -127,10 +127,10 @@ The following JSON structure is used to create, update and retrieve journal entr
 
 ### DynamoDB
 
-| PK                                            | SK                          | Name        | Date       | Organizer         | Summary           | Description                | Classification | URL                                  |
-|-----------------------------------------------|-----------------------------|-------------|------------|-------------------|-------------------|----------------------------|----------------|--------------------------------------|
-| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | #METADATA#`<uid>`..         | Jan 01 2021 | 2020-01-01 | johnd@example.com | First day of 2021 | Relaxing start to the year | PUBLIC         | -                                    |
-| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | CATEGORY#my-journal         | My Journal  |            |                   |                   |                            |                |                                      |
-| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | ATTACH#1                    | -           | -          |                   | -                 | -                          |                | https://photos.example.com/relax.png |
-| ENTRY# `<uid>` # `<sequenceno>` # `<recurid>` | CONTACT#1                   | John Doe    | -          |                   | -                 | -                          |                | johnd@example.com                    |
-| ORGANIZER#johnd@example.com                   | #METADATA#johnd@example.com | John Doe    |            |                   |                   |                            |                |                                      |
+| PK                                   | SK                          | Name        | Date       | Organizer         | Summary           | Description                | Categories | Classification | URL                                  |
+|--------------------------------------|-----------------------------|-------------|------------|-------------------|-------------------|----------------------------|------------|----------------|--------------------------------------|
+| ENTRY#`<uid>:<sequenceno>:<recurid>` | #METADATA#`<uid>#..`        | Jan 01 2021 | 2020-01-01 | johnd@example.com | First day of 2021 | Relaxing start to the year | my-journal | PUBLIC         | -                                    |
+| CATEGORY#my-journal                  | #METADATA#my-journal        | My Journal  |            |                   |                   |                            |            |                |                                      |
+| ENTRY#`<uid>:<sequenceno>:<recurid>` | ATTACH#1                    | -           | -          |                   | -                 | -                          |            |                | https://photos.example.com/relax.png |
+| ENTRY#`<uid>:<sequenceno>:<recurid>` | CONTACT#1                   | John Doe    | -          |                   | -                 | -                          |            |                | johnd@example.com                    |
+| ORGANIZER#johnd@example.com          | #METADATA#johnd@example.com | John Doe    |            |                   |                   |                            |            |                |                                      |
